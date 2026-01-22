@@ -65,19 +65,85 @@
                     </ul>
                 </nav>
                 <button class="sign-in-btn">Sign In</button>
+                <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-banner orange-banner">
-            <h2>DENOUEMENT OF</h2>
+        <div class="hero-top-content">
+            <div class="hero-banner orange-banner top-banner">
+                <h2>DENOUEMENT OF</h2>
+            </div>
         </div>
-        <div class="hero-image">
-            <img src="hero-landmarks.png" alt="World Landmarks Collage">
+
+        <div class="hero-slider">
+            <!-- Slide 1: Wildest Dream Collage -->
+            <div class="slide active">
+                <img src="assets/images/hero-collage.jpg" alt="Wildest Dream Collage">
+            </div>
+            <!-- Slide 2: Realized Travel Dream -->
+            <div class="slide">
+                <img src="assets/images/hero-travel.jpg" alt="Travel The World Dream">
+                <div class="slide-overlay-text orange-text">REALIZED</div>
+            </div>
+            <!-- Slide 3: Update: Realized Home Dream (Dawn) -->
+            <div class="slide">
+                <img src="assets/images/hero-dawn.jpg" alt="Dawn of The Dream">
+                <div class="slide-overlay-text orange-text">DAWN OF</div>
+            </div>
+            <!-- Slide 4: Realized Home Dream 1 (Outing) -->
+            <div class="slide">
+                <img src="assets/images/hero-outing.jpg" alt="First Family Outing">
+                <div class="slide-overlay-text orange-text">REALIZED</div>
+            </div>
+            <!-- Slide 5: Auroville -->
+            <div class="slide">
+                <img src="assets/images/hero-auroville.jpg" alt="Auroville">
+                <div class="slide-overlay-text white-text">AUROVILLE</div>
+            </div>
+            <!-- Slide 6: Mystery Location -->
+            <div class="slide">
+                <img src="assets/images/hero-mystery.jpg" alt="Mystery Location">
+                <div class="slide-overlay-text white-text">MYSTERY LOCATION</div>
+            </div>
+            <!-- Slide 7: Angkor Wat -->
+            <div class="slide">
+                <img src="assets/images/hero-angkor.jpg" alt="Angkor Wat">
+                <div class="slide-overlay-text white-text">ANGKOR WAT</div>
+            </div>
+            <!-- Slide 8: Akureyri -->
+            <div class="slide">
+                <img src="assets/images/hero-akureyri.jpg" alt="Akureyri">
+                <div class="slide-overlay-text white-text">AKUREYRI</div>
+            </div>
+            <!-- Slide 9: Happiness Quote -->
+            <div class="slide">
+                <img src="assets/images/hero-quote.jpg" alt="Happiness">
+            </div>
         </div>
-        <div class="hero-banner green-banner">
+
+        <button class="slider-btn prev-btn" aria-label="Previous Slide">❮</button>
+        <button class="slider-btn next-btn" aria-label="Next Slide">❯</button>
+
+        <div class="slider-dots">
+            <button class="dot active" data-slide="0"></button>
+            <button class="dot" data-slide="1"></button>
+            <button class="dot" data-slide="2"></button>
+            <button class="dot" data-slide="3"></button>
+            <button class="dot" data-slide="4"></button>
+            <button class="dot" data-slide="5"></button>
+            <button class="dot" data-slide="6"></button>
+            <button class="dot" data-slide="7"></button>
+            <button class="dot" data-slide="8"></button>
+        </div>
+
+        <div class="hero-banner green-banner bottom-banner">
             <h2>THE WILDEST DREAM</h2>
         </div>
     </section>
@@ -96,6 +162,9 @@
                 anywhere in the universe. Vishwameva Kutumbakam dreams to be a testament to humanity's capacity to
                 collaborate and transcend boundaries, transforming dreams into reality through unity and determination.
             </p>
+            <div class="welcome-image" style="text-align: center; margin-top: 30px;">
+                <img src="assets/images/happiness.jpg" alt="Happiness" style="max-width: 200px; border-radius: 50%;">
+            </div>
         </div>
     </section>
 
@@ -105,15 +174,15 @@
             <h2 class="section-title">DIVE DEEPER</h2>
             <div class="cards-grid">
                 <div class="info-card purple-card">
-                    <div class="card-icon">🌍</div>
+                    <div class="card-icon"><img src="assets/images/icon-new.png" alt="Icon"></div>
                     <h3>Vishwameva Kutumbakam</h3>
                 </div>
                 <div class="info-card purple-card">
-                    <div class="card-icon">📖</div>
+                    <div class="card-icon"><img src="assets/images/icon-od.png" alt="Icon"></div>
                     <h3>Our Dream Story</h3>
                 </div>
                 <div class="info-card purple-card">
-                    <div class="card-icon">🍲</div>
+                    <div class="card-icon"><img src="assets/images/icon-new01.png" alt="Icon"></div>
                     <h3>Akshaya Patra Economics</h3>
                 </div>
             </div>
@@ -155,26 +224,26 @@
             </p>
             <div class="zen-grid">
                 <div class="zen-card">
-                    <img src="auroville.png" alt="Auroville, India">
+                    <img src="assets/images/auroville.jpeg" alt="Auroville, India">
                     <div class="zen-overlay">
                         <h3>Auroville, India</h3>
                     </div>
                 </div>
                 <div class="zen-card">
-                    <img src="fiordland.png" alt="Mystery Location, Fiordland NZ">
+                    <img src="assets/images/mystery-location.jpg" alt="Mystery Location, Fiordland NZ">
                     <div class="zen-overlay">
                         <h3>Mystery Location</h3>
                         <p>Fiordland, NZ</p>
                     </div>
                 </div>
                 <div class="zen-card">
-                    <img src="auroville.png" alt="Angkor Wat">
+                    <img src="assets/images/angkor-wat.jpg" alt="Angkor Wat">
                     <div class="zen-overlay">
                         <h3>Angkor Wat</h3>
                     </div>
                 </div>
                 <div class="zen-card">
-                    <img src="fiordland.png" alt="Akureyri">
+                    <img src="assets/images/akureyri.jpg" alt="Akureyri">
                     <div class="zen-overlay">
                         <h3>Akureyri</h3>
                     </div>
@@ -188,7 +257,7 @@
         <div class="container">
             <div class="membership-grid">
                 <div class="membership-card">
-                    <img src="membership.png" alt="Membership Types">
+                    <!-- Using a placeholder or one of the images if specific one not found, but we will use style to match look -->
                     <div class="membership-content">
                         <h2>Membership Types</h2>
                         <p>An effective FAQ resource can educate, inform, and naturally guide the user through your

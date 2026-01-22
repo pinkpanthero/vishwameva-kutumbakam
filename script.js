@@ -1,3 +1,58 @@
+// Hamburger menu toggle
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const nav = document.querySelector('.nav');
+
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+        hamburgerMenu.classList.toggle('active');
+        nav.classList.toggle('mobile-active');
+
+        // Prevent body scroll when menu is open
+        if (nav.classList.contains('mobile-active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// Close mobile menu when clicking on a link
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // For dropdown parent links on mobile, toggle dropdown instead of navigating
+        const parentDropdown = link.closest('.nav-dropdown');
+        if (parentDropdown && window.innerWidth <= 768) {
+            // Check if this link has a dropdown menu
+            const dropdownMenu = parentDropdown.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                e.preventDefault();
+                parentDropdown.classList.toggle('active');
+                return;
+            }
+        }
+
+        // Close mobile menu when clicking a regular link
+        if (window.innerWidth <= 768) {
+            hamburgerMenu.classList.remove('active');
+            nav.classList.remove('mobile-active');
+            document.body.style.overflow = '';
+        }
+    });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 &&
+        nav.classList.contains('mobile-active') &&
+        !nav.contains(e.target) &&
+        !hamburgerMenu.contains(e.target)) {
+        hamburgerMenu.classList.remove('active');
+        nav.classList.remove('mobile-active');
+        document.body.style.overflow = '';
+    }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -14,7 +69,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Active navigation link highlighting
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
 
 function highlightNavigation() {
     let scrollPosition = window.scrollY + 100;
@@ -88,12 +142,74 @@ document.querySelectorAll('.info-card').forEach(card => {
     });
 });
 
-// Add parallax effect to hero image
+// Hero Slider Logic
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const slideInterval = 5000;
+let slideTimer;
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+// Event Listeners for Slider
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+    });
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        showSlide(index);
+        resetTimer();
+    });
+});
+
+// Auto Play
+function startTimer() {
+    slideTimer = setInterval(nextSlide, slideInterval);
+}
+
+function resetTimer() {
+    clearInterval(slideTimer);
+    startTimer();
+}
+
+// Initialize Slider
+if (slides.length > 0) {
+    startTimer();
+}
+
+// Add parallax effect to hero image (applied to active slide background)
 window.addEventListener('scroll', () => {
-    const heroImage = document.querySelector('.hero-image img');
-    if (heroImage) {
+    const activeSlide = document.querySelector('.slide.active');
+    if (activeSlide) {
         const scrolled = window.pageYOffset;
-        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+        activeSlide.style.backgroundPosition = `center ${scrolled * 0.5}px`;
     }
 });
 
