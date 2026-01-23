@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color_11: #ffffff;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
@@ -20,7 +24,7 @@ body {
 
 /* Header Styles */
 .header {
-    background: linear-gradient(135deg, #a8e6cf 0%, #dcedc8 50%, #fff9c4 100%);
+    background-color: var(--color_11) !important;
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -30,54 +34,26 @@ body {
 
 .header-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    position: relative;
+}
+
+.header-logo {
+    height: 50px;
+    width: auto;
+}
+
+/* Push nav to the right */
+.nav {
+    margin-left: auto;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.logo-circle {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-}
-
-.logo-inner {
-    width: 40px;
-    height: 40px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: #ff6b35;
-    font-size: 14px;
-}
-
-.logo-text h1 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #2c5f2d;
-    text-transform: lowercase;
-    letter-spacing: 1px;
-}
-
-.logo-text p {
-    font-size: 10px;
-    color: #666;
-    letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
 /* Navigation */
