@@ -6,7 +6,7 @@
 }
 
 :root {
-    --color_11: #ffffff;
+    --color_11: 255, 255, 255;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 
 /* Header Styles */
 .header {
-    background-color: var(--color_11) !important;
+    background-color: rgba(190, 222, 182, 1);
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -41,7 +41,7 @@ body {
 }
 
 .header-logo {
-    height: 50px;
+    height: 80px;
     width: auto;
 }
 
@@ -148,7 +148,6 @@ body {
 
 .hero-top-content {
     text-align: center;
-    padding: 20px 0;
 }
 
 .hero-slider {
